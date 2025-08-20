@@ -21,7 +21,11 @@ create table if not exists prototypes (
   id bigint generated always as identity primary key,
   user_id uuid not null references auth.users(id) on delete cascade,
   title text not null,
-  status text not null default 'ideas'
+  hypothesis text not null,
+  next_step text not null,
+  due_date date,
+  tags text[] not null default '{}',
+  status text not null default 'backlog'
 );
 
 create table if not exists failure_reframes (
