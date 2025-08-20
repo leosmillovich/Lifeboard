@@ -57,6 +57,7 @@ export default function Habits() {
       <ul className="space-y-2">
         {habits.map(h => (
           <li key={h.id} className="border p-2">
+            Después de {h.trigger} {'->'} haré {h.action}
             Después de {h.trigger} haré {h.action}
           </li>
         ))}

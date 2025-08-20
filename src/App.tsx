@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Dashboard from './components/Dashboard'
+import AuthGate from './components/AuthGate'
 import GoodTimeJournal from './components/GoodTimeJournal'
 import Prototypes from './components/Prototypes'
 import FailureReframe from './components/FailureReframe'
@@ -23,7 +24,14 @@ export default function App() {
       </nav>
       <div className="p-4">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/"
+            element={
+              <AuthGate>
+                <Dashboard />
+              </AuthGate>
+            }
+          />
           <Route path="/gtj" element={<GoodTimeJournal />} />
           <Route path="/prototypes" element={<Prototypes />} />
           <Route path="/failure" element={<FailureReframe />} />
