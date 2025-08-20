@@ -24,7 +24,19 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    if (userId) loadMetrics()
+    if (!userId) return
+    const init = async () => {
+      const { data } = await supabase
+        .from('life_meters')
+        .select('user_id')
+        .eq('user_id', userId)
+        .maybeSingle()
+      if (!data) {
+        await supabase.from('life_meters').upsert({ user_id: userId })
+      }
+      loadMetrics()
+    }
+    init()
   }, [userId])
 
   const updateMetric = async (label: string, value: number) => {
