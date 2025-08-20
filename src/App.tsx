@@ -16,7 +16,7 @@ export default function App() {
         <Link to="/">Dashboard</Link>
         <Link to="/gtj">GTJ</Link>
         <Link to="/prototypes">Prototipos</Link>
-        <Link to="/failure">Failure Reframe</Link>
+        <Link to="/failure-reframe">Failure Reframe</Link>
         <Link to="/odyssey">Odyssey</Link>
         <Link to="/habits">Hábitos</Link>
         <Link to="/weekly">Revisión semanal</Link>
@@ -34,7 +34,7 @@ export default function App() {
           />
           <Route path="/gtj" element={<GoodTimeJournal />} />
           <Route path="/prototypes" element={<Prototypes />} />
-          <Route path="/failure" element={<FailureReframe />} />
+          <Route path="/failure-reframe" element={<FailureReframe />} />
           <Route path="/odyssey" element={<Odyssey />} />
           <Route path="/habits" element={<Habits />} />
           <Route path="/weekly" element={<WeeklyReview />} />

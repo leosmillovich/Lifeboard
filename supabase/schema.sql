@@ -31,8 +31,12 @@ create table if not exists prototypes (
 create table if not exists failure_reframes (
   id bigint generated always as identity primary key,
   user_id uuid not null references auth.users(id) on delete cascade,
-  failure text not null,
-  lesson text not null
+  event text not null,
+  assumption text,
+  learning text,
+  adjustment text,
+  next_prototype_date date,
+  created_at timestamptz not null default now()
 );
 
 create table if not exists odyssey_plans (
